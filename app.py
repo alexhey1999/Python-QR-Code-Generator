@@ -25,8 +25,6 @@ def generateQRCode(data, imageAdd, image, colour, backgroundColour, scale, out, 
         pos = ((img.size[0] - logo.size[0]) // 2, (img.size[1] - logo.size[1]) // 2)
         img.paste(logo,pos)
 
-    #Looks at top variable of weather to save the QR Codes (Recommend disabling whilst testing)
-
     imageName = out + "QR.png"
     img.save(imageName)
     print("QR Code saved as: ", imageName)
