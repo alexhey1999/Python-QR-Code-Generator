@@ -50,7 +50,7 @@ def main():
     parser.add_argument('--boxSize', dest='boxSize', required=False)
     
     #Contact args
-    parser.add_argument('--firstName', dest='firstName', required=False)
+    parser.add_argument('--firstname', dest='firstname', required=False)
     parser.add_argument('--lastName', dest='lastName', required=False)
     parser.add_argument('--organization', dest='organization', required=False)
     parser.add_argument('--email', dest='email', required=False)
