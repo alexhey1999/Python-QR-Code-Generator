@@ -94,7 +94,7 @@ def main():
     scale = None
     if args.scale:
         try:
-            version = int(args.scale)
+            scale = float(args.scale)
         except:
             print('Error: version must be an integer')
             quit()
