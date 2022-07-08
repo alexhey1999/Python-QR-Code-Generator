@@ -29,6 +29,7 @@ $ python3 -m pip install -r requirements.txt
 ```
 <br>
 ## Usage
+
 ```console
 $ python3 QRGenerator.py --help
 usage: QRGenerator.py [-h] --type TYPE [--image IMAGE] [--out OUT] [--colour COLOUR]
@@ -57,7 +58,8 @@ optional arguments:
   --postcode POSTCODE
   --url URL
   --text TEXT
- ```
+```
+
 <br> 
 To generate a QR Code with a single link and image
 
