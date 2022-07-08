@@ -4,9 +4,9 @@ import json
 import csv
 from PIL import Image
 
-def generateQRCode(data, imageAdd, image, colour, backgroundColour, scale, out, version, boxSize):
+def generateQRCode(data, imageAdd, image, colour, backgroundColour, scale, out, boxSize):
     # Creating an instance of QRCode class
-    qr = qrcode.QRCode(version = version,box_size = boxSize,border = 1)
+    qr = qrcode.QRCode(version = 1,box_size = boxSize,border = 1)
     # Adding data to the instance 'qr'
     qr.add_data(data)
     qr.make()
@@ -41,13 +41,12 @@ def main():
     parser.add_argument('--type', dest='type', required=True)
 
     # Optional
-    parser.add_argument('--image', dest='image', required=False)
-    parser.add_argument('--out', dest='out', required=False)
-    parser.add_argument('--colour', dest='colour', required=False)
-    parser.add_argument('--backgroundColour', dest='backgroundColour', required=False)
-    parser.add_argument('--scale', dest='scale', required=False)
-    parser.add_argument('--version', dest='version', required=False)
-    parser.add_argument('--boxSize', dest='boxSize', required=False)
+    parser.add_argument('--image', dest='image', required=False,help='Path to the image')
+    parser.add_argument('--out', dest='out', required=False,help='Change the output file name')
+    parser.add_argument('--colour', dest='colour', required=False,help='Change the colour of the QR Code')
+    parser.add_argument('--backgroundColour', dest='backgroundColour', required=False,help='Change the background colour of the QR Code')
+    parser.add_argument('--scale', dest='scale', required=False,help='Change the scale of the image. 1 is the same resolution as raw image')
+    parser.add_argument('--boxSize', dest='boxSize', required=False,help='Change the resolution of the final QR Code')
     
     #Contact args
     parser.add_argument('--firstname', dest='firstname', required=False)
@@ -98,14 +97,6 @@ def main():
         except:
             print('Error: version must be an integer')
             quit()
-    
-    version = 1
-    if args.version:
-        try:
-            version = int(args.version)
-        except:
-            print('Error: version must be an integer')
-            quit()
 
     boxSize = 10
     if args.boxSize:
@@ -134,11 +125,11 @@ def main():
     elif args.type == 'text':
         # generateQRCode(data, imageAdd, image, colour, backgroundColour, scale, out, version, boxSize)
         text = args.text
-        generateQRCode(text, imageAdd, image, colour, backgroundColour, scale, out, version, boxSize)
+        generateQRCode(text, imageAdd, image, colour, backgroundColour, scale, out, boxSize)
         
     elif args.type == 'url':
         url = args.url
-        generateQRCode(url, imageAdd, image, colour, backgroundColour, scale, out, version, boxSize)
+        generateQRCode(url, imageAdd, image, colour, backgroundColour, scale, out, boxSize)
 
 
 # main
