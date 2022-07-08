@@ -28,6 +28,7 @@ $ cd Python-QR-Code-Generator
 $ python3 -m pip install -r requirements.txt
 ```
 <br>
+
 ## Usage
 
 ```console
